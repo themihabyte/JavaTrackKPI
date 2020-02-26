@@ -9,10 +9,15 @@ public class Response {
         System.out.println("2) Show excellent second-year students");
         System.out.println("3) Show foreign well-studying students");
         System.out.println("4) Exit");
-        System.out.println("/nEnter key: ");
+        System.out.println("Enter key: ");
     }
 
     void displayStudents(Student[] students){
+        if (students == null) {
+            System.out.println("There aren`t any students like that");
+            return;
+        }
+
         for (Student student:
              students) {
             System.out.println(student.toString());
