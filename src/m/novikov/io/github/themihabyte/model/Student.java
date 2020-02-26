@@ -22,16 +22,13 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{"+
-                "name='"+name+'\''+
-                ", surname='"+surname+'\''+
-                ", lastName='"+lastName+'\''+
-                ", studentID="+studentID+
-                ", studyYear="+studyYear+
-                ", country='"+country+'\''+
-                ", gender="+gender+
-                ", mark="+mark+
-                '}';
+        return "Student: "+name+" "+surname+' '+lastName
+                +'\n'+
+                "studentID="+studentID+
+                "\tstudyYear="+studyYear+
+                "\ncountry:"+country+
+                "\tgender:"+getGender()+
+                "\tmark="+mark+"\n";
     }
 
     public Student(String name, String surname, String lastName, int studentID, byte studyYear, String country, boolean gender, byte mark) {
@@ -93,8 +90,9 @@ public class Student {
         this.country=country;
     }
 
-    public boolean isGender() {
-        return gender;
+    public String getGender() {
+        if (gender) return "MALE";
+        return "FEMALE";
     }
 
     public void setGender(boolean gender) {
