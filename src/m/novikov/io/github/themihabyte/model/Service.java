@@ -7,6 +7,7 @@ public class Service {
         return students;
     }
 
+    // Gets students from some data source
     public void setStudents(int n) {
         students=new Student[n];
 
@@ -15,24 +16,49 @@ public class Service {
         }
     }
 
+    // Finds excellent second year students in array
     public Student[] getExcellentSecondYearStudents(){
-        Student[] filter = new Student[students.length]; // new array for filtered students
+        Student[] filter = new Student[students.length]; // New array for filtered students
 
         int i = 0; // Variable for counting and indexing filtered students
         for (Student student:
              students) {
-            if ((student.getMark() == 5) && (student.getStudyYear() == 2)){
+            if ((student.getMark() > 95) && (student.getStudyYear() == 2)){
                 filter[i] = student;
                 i++;
             }
         }
 
         // For returning full-filled array
-        Student[] list = new Student[i];
-        System.arraycopy(filter, 0, list, 0, i);
-
-        return list;
+        if (i != 0){
+            Student[] list = new Student[i];
+            System.arraycopy(filter, 0, list, 0, i);
+            return list;
+        } else {
+            return null;
+        }
     }
 
-    //TODO second exercise
+    // Finds foreign well-studying students in array
+    public Student[] getForeignWellStudyingStudents(){
+        Student[] filter = new Student[students.length]; // New array for filtered students
+
+        int i = 0; // Variable for counting and indexing filtered students
+        for (Student student:
+                students) {
+            if ((student.getMark() > 85) && (!student.getCountry().equals("Ukraine"))){
+                filter[i] = student;
+                i++;
+            }
+        }
+
+        // For returning full-filled array
+        if (i != 0){
+            Student[] list = new Student[i];
+            System.arraycopy(filter, 0, list, 0, i);
+            return list;
+        } else {
+            return null;
+        }
+    }
 }
