@@ -13,6 +13,8 @@ public class View {
 
     public int menu(){
         int key;
+
+        // Menu cycle
         do {
             response.displayMenuItems();
             key = request.getMenuKey();
@@ -20,6 +22,7 @@ public class View {
         return key;
     }
 
+    // Shows array of some students on screen
     public void students(Student[] students){
         response.displayStudents(students);
     }
