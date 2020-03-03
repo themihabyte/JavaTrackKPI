@@ -7,7 +7,6 @@ public class Service {
         return students;
     }
 
-    // Gets students from some data source
     public void setStudents(int n) {
         students=new Student[n];
 
@@ -16,11 +15,10 @@ public class Service {
         }
     }
 
-    // Finds excellent second year students in array
     public Student[] getExcellentSecondYearStudents(){
-        Student[] filter = new Student[students.length]; // New array for filtered students
+        Student[] filter = new Student[students.length];
 
-        int i = 0; // Variable for counting and indexing filtered students
+        int i = 0;
         for (Student student:
              students) {
             if ((student.getMark() > 95) && (student.getStudyYear() == 2)){
@@ -29,7 +27,6 @@ public class Service {
             }
         }
 
-        // For returning full-filled array
         if (i != 0){
             Student[] list = new Student[i];
             System.arraycopy(filter, 0, list, 0, i);
@@ -39,11 +36,10 @@ public class Service {
         }
     }
 
-    // Finds foreign well-studying students in array
     public Student[] getForeignWellStudyingStudents(){
-        Student[] filter = new Student[students.length]; // New array for filtered students
+        Student[] filter = new Student[students.length];
 
-        int i = 0; // Variable for counting and indexing filtered students
+        int i = 0;
         for (Student student:
                 students) {
             if ((student.getMark() > 85) && (!student.getCountry().equals("Ukraine"))){
@@ -52,7 +48,6 @@ public class Service {
             }
         }
 
-        // For returning full-filled array
         if (i != 0){
             Student[] list = new Student[i];
             System.arraycopy(filter, 0, list, 0, i);
