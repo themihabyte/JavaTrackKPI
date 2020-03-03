@@ -6,19 +6,17 @@ import m.novikov.io.github.themihabyte.view.View;
 public class Controller {
     Service service;
     View view;
-    int n = 10; // Number of students
+    int n = 10;
 
-    // Start program with this method
     public void run(){
-        boolean run = true; // When false - exit from program
+        boolean run = true;
 
-        service.setStudents(n); // Get n students from some data source
+        service.setStudents(n);
 
         do {
-            // Menu cycle
             switch (view.menu()) {
                 case 1:
-                    showAllStudentsList(); // Display all students from source
+                    showAllStudentsList();
                     break;
                 case 2:
                     showExcellentSecondYearStudents();
@@ -27,7 +25,7 @@ public class Controller {
                     showForeignWellStudyingStudents();
                     break;
                 case 4:
-                    run = false; // Exit from program
+                    run = false;
                     break;
             }
         } while (run);
@@ -38,17 +36,14 @@ public class Controller {
         this.view = new View();
     }
 
-    // Displays all students on screen
     private void showAllStudentsList(){
         view.students(service.getStudents());
     }
 
-    // Displays only excellent second-year students
     private void showExcellentSecondYearStudents(){
         view.students(service.getExcellentSecondYearStudents());
     }
 
-    // Displays only foreign student whose mark > 85
     private void showForeignWellStudyingStudents(){
         view.students(service.getForeignWellStudyingStudents());
     }
