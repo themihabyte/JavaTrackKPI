@@ -7,11 +7,11 @@ public class Controller {
     private final Service service;
     private final View view;
 
-    public void run(){
+    public void run() {
         service.setStudents();
 
         do {
-            switch (view.menu()) {
+            switch (view.displayMenu()) {
                 case 1:
                     showAllStudentsList();
                     break;
@@ -28,19 +28,19 @@ public class Controller {
     }
 
     public Controller() {
-        this.service = new Service();
-        this.view = new View();
+        this.service=new Service();
+        this.view=new View();
     }
 
-    private void showAllStudentsList(){
+    private void showAllStudentsList() {
         view.displayStudents(service.getStudents());
     }
 
-    private void showExcellentSecondYearStudents(){
+    private void showExcellentSecondYearStudents() {
         view.displayStudents(service.getExcellentSecondYearStudents());
     }
 
-    private void showForeignWellStudyingStudents(){
+    private void showForeignWellStudyingStudents() {
         view.displayStudents(service.getForeignWellStudyingStudents());
     }
 }
