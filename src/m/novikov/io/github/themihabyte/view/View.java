@@ -5,41 +5,36 @@ import m.novikov.io.github.themihabyte.model.Student;
 import java.util.Scanner;
 
 public class View {
+    private static final int WRONG_MENU_ITEM=-1;
     Scanner scanner;
 
-    public View(){
-        this.scanner = new Scanner(System.in);
+    public View() {
+        this.scanner=new Scanner(System.in);
     }
 
-    public int menu(){
+    public int menu() {
         int key;
 
         do {
             displayMenuItems();
-            key = getMenuKey();
-        } while (key == -1);
+            key=getMenuKey();
+        } while (key == WRONG_MENU_ITEM);
         return key;
     }
 
-    public void students(Student[] students){
-        displayStudents(students);
-    }
-
     private int getMenuKey() {
-        int key;
+        String key;
+        key=scanner.nextLine();
 
-        try {
-            key=scanner.nextInt();
-        } catch (Exception e){
+        if (Validator.validateMenuKey(key)) {
+            return Integer.parseInt(key);
+        } else {
             System.out.println("Input another key");
-            scanner = new Scanner(System.in);
-            return -1;
+            return WRONG_MENU_ITEM;
         }
-        if (Validator.validateMenuKey(key)) return key;
-        return -1;
     }
 
-    private void displayMenuItems(){
+    private void displayMenuItems() {
         System.out.println("\t\tMENU\n");
         System.out.println("1) Show students list");
         System.out.println("2) Show excellent second-year students");
@@ -48,13 +43,15 @@ public class View {
         System.out.println("Enter key: ");
     }
 
-    private void displayStudents(Student[] students){
-        if (students == null) {
-            System.out.println("There aren`t any students like that");
+    public void displayStudents(Student[] students) {
+        if (students.length == 0) {
+            System.out.println("There are not any students like that");
             return;
         }
 
-        for (Student student:
+        System.out.println("NAME\tSURNAME\tLAST NAME\tID\tSTUDY YEAR\t"+
+                "COUNTRY\tGENDER\tMARK\n");
+        for (Student student :
                 students) {
             System.out.println(student.toString());
         }
