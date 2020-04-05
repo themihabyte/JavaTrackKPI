@@ -4,14 +4,11 @@ import m.novikov.io.github.themihabyte.model.Service;
 import m.novikov.io.github.themihabyte.view.View;
 
 public class Controller {
-    Service service;
-    View view;
-    int n = 10;
+    private final Service service;
+    private final View view;
 
     public void run(){
-        boolean run = true;
-
-        service.setStudents(n);
+        service.setStudents();
 
         do {
             switch (view.menu()) {
@@ -25,10 +22,9 @@ public class Controller {
                     showForeignWellStudyingStudents();
                     break;
                 case 4:
-                    run = false;
-                    break;
+                    System.exit(1);
             }
-        } while (run);
+        } while (true);
     }
 
     public Controller() {
@@ -37,14 +33,14 @@ public class Controller {
     }
 
     private void showAllStudentsList(){
-        view.students(service.getStudents());
+        view.displayStudents(service.getStudents());
     }
 
     private void showExcellentSecondYearStudents(){
-        view.students(service.getExcellentSecondYearStudents());
+        view.displayStudents(service.getExcellentSecondYearStudents());
     }
 
     private void showForeignWellStudyingStudents(){
-        view.students(service.getForeignWellStudyingStudents());
+        view.displayStudents(service.getForeignWellStudyingStudents());
     }
 }
