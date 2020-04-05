@@ -22,13 +22,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student: "+name+" "+surname+' '+lastName
-                +'\n'+
-                "studentID="+studentID+
-                "\tstudyYear="+studyYear+
-                "\ncountry:"+country+
-                "\tgender:"+getGender()+
-                "\tmark="+mark+"\n";
+        return name+"\t"+surname+'\t'+lastName
+                +"\t"+studentID+"\t"+studyYear+
+                "\t"+country+
+                "\t"+getGender()+
+                "\t"+mark+"\n";
     }
 
     public Student(String name, String surname, String lastName, int studentID, byte studyYear, String country, boolean gender, byte mark) {
