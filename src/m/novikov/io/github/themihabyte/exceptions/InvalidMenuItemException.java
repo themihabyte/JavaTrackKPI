@@ -1,5 +1,6 @@
 package m.novikov.io.github.themihabyte.exceptions;
 
-public class InvalidMenuItemException extends Exception{
+import java.io.IOException;
 
+public class InvalidMenuItemException extends IOException {
 }
