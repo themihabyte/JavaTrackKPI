@@ -3,7 +3,7 @@ package m.novikov.io.github.themihabyte.model;
 import java.util.Random;
 
 public class DataSource {
-    private static Random random=new Random();
+    private static final Random random=new Random();
 
     static Student generateStudent() {
         Student student=new Student();
