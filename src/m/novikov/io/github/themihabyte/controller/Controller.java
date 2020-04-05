@@ -11,7 +11,7 @@ public class Controller {
         service.setStudents();
 
         do {
-            switch (view.menu()) {
+            switch (view.displayMenu()) {
                 case 1:
                     showAllStudentsList();
                     break;

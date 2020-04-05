@@ -12,7 +12,7 @@ public class View {
         this.scanner=new Scanner(System.in);
     }
 
-    public int menu() {
+    public int displayMenu() {
         int key;
 
         do {
