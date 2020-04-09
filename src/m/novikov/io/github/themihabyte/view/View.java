@@ -1,6 +1,5 @@
 package m.novikov.io.github.themihabyte.view;
 
-import m.novikov.io.github.themihabyte.exceptions.EmptyStudentsListException;
 import m.novikov.io.github.themihabyte.exceptions.InvalidMenuItemException;
 import m.novikov.io.github.themihabyte.model.Student;
 
@@ -31,7 +30,7 @@ public class View {
         try {
             Validator.validateMenuKey(key);
         } catch (InvalidMenuItemException e) {
-            System.err.println("Menu item " + key + " does not exist");
+            System.err.println(e.getMessage());
             return WRONG_MENU_ITEM;
         }
         return Integer.parseInt(key);
@@ -48,12 +47,8 @@ public class View {
 
     public void displayStudents(Student[] students) {
         if (students.length == 0) {
-            try {
-                throw new EmptyStudentsListException();
-            } catch (EmptyStudentsListException e) {
-                System.err.println(e.getMessage());
-                return;
-            }
+            System.out.println("There are not any students like that");
+            return;
         }
 
         System.out.println("NAME\tSURNAME\tLAST NAME\tID\tSTUDY YEAR\t"+
