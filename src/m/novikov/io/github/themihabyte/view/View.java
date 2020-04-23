@@ -24,8 +24,7 @@ public class View {
     }
 
     private int getMenuKey() {
-        String key;
-        key=scanner.nextLine();
+        String key=scanner.nextLine();
 
         try {
             Validator.validateMenuKey(key);
@@ -57,5 +56,28 @@ public class View {
                 students) {
             System.out.println(student.toString());
         }
+    }
+
+    public boolean askToSave() {
+        System.out.println("Do you want to save this result into file?\n"+
+                "y/n?");
+        do {
+            String key;
+            key=scanner.nextLine();
+
+            if (Validator.validateYesNoKey(key)) {
+                return key.equals("Y") || key.equals("y") ||
+                        key.equals("yes") || key.equals("YES");
+            } else System.out.println("Input another key");
+        } while (true);
+    }
+
+    public String getFilepath(){
+        do {
+            System.out.println("Where do you want to save it?");
+            String filepath = scanner.nextLine();
+            if (Validator.validateFilepath(filepath)) return filepath;
+            else System.out.println("Wrong filepath");
+        } while (true);
     }
 }
