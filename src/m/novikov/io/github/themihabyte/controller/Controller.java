@@ -1,6 +1,7 @@
 package m.novikov.io.github.themihabyte.controller;
 
 import m.novikov.io.github.themihabyte.model.Service;
+import m.novikov.io.github.themihabyte.model.Student;
 import m.novikov.io.github.themihabyte.view.View;
 
 public class Controller {
@@ -37,10 +38,20 @@ public class Controller {
     }
 
     private void showExcellentSecondYearStudents() {
-        view.displayStudents(service.getExcellentSecondYearStudents());
+        Student[] students=service.getExcellentSecondYearStudents();
+        view.displayStudents(students);
+        saveResultToFile(students);
     }
 
     private void showForeignWellStudyingStudents() {
-        view.displayStudents(service.getForeignWellStudyingStudents());
+        Student[] students=service.getForeignWellStudyingStudents();
+        view.displayStudents(students);
+        saveResultToFile(students);
+    }
+
+    private void saveResultToFile(Student[] students) {
+        if (view.askToSave()) {
+            service.writeStudentsToFile(students, view.getFilepath());
+        }
     }
 }
