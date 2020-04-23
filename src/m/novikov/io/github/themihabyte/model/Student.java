@@ -1,6 +1,10 @@
 package m.novikov.io.github.themihabyte.model;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
+    public static final boolean GENDER_MALE=true;
+    public static final boolean GENDER_FEMALE=false;
     private String name;
     private String surname;
     private String lastName;
@@ -22,11 +26,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return name+"\t"+surname+'\t'+lastName
-                +"\t"+studentID+"\t"+studyYear+
-                "\t"+country+
-                "\t"+getGender()+
-                "\t"+mark+"\n";
+        return name+" "+surname+' '+lastName
+                +" "+studentID+" "+studyYear+
+                " "+country+
+                " "+getGender()+
+                " "+mark+"\n";
     }
 
     public Student(String name, String surname, String lastName, int studentID, byte studyYear, String country, boolean gender, byte mark) {
@@ -89,12 +93,17 @@ public class Student {
     }
 
     public String getGender() {
-        if (gender) return "MALE";
+        if (gender == GENDER_MALE) return "MALE";
         return "FEMALE";
     }
 
     public void setGender(boolean gender) {
         this.gender=gender;
+    }
+
+    public void setGender(String gender) {
+        if (gender.equals("MALE")) this.gender=GENDER_MALE;
+        else this.gender=GENDER_FEMALE;
     }
 
     public byte getMark() {
