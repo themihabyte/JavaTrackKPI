@@ -9,7 +9,7 @@ public class Controller {
     private final View view;
 
     public void run() {
-        service.setStudents();
+        service.setStudents(); // TODO exception
 
         do {
             switch (view.displayMenu()) {
@@ -50,7 +50,7 @@ public class Controller {
     }
 
     private void saveResultToFile(Student[] students) {
-        if (view.askToSave()) {
+        if (view.askAboutSavingInFile()) {
             service.writeStudentsToFile(students, view.getFilepath());
         }
     }

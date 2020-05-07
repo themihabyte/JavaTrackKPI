@@ -40,8 +40,6 @@ class WorkWithFile {
                 students[i].setMark(Byte.parseByte(studentData[7]));
 
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

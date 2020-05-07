@@ -58,7 +58,7 @@ public class View {
         }
     }
 
-    public boolean askToSave() {
+    public boolean askAboutSavingInFile() {
         System.out.println("Do you want to save this result into file?\n"+
                 "y/n?");
         do {
