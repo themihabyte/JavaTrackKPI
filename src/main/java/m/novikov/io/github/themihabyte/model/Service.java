@@ -24,7 +24,7 @@ public class Service {
         students=workWithFile.readDataFromTextFile(
                 "C:\\Users\\Admin\\Desktop\\JavaTrackKPI\\files\\DataSource.txt",
                 numberOfStudents);
-        logger.trace("In studetns now: "+students);
+        logger.trace("In students now: "+students);
     }
 
     public Student[] getExcellentSecondYearStudents() {

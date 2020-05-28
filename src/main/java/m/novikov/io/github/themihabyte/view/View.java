@@ -95,7 +95,6 @@ public class View {
 
     public void showErrorMessage(String message){
         System.err.println(message);
-        logger.error(message);
     }
 
     public void showMessage(String message){
